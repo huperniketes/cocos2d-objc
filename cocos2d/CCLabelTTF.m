@@ -149,7 +149,10 @@ static __strong NSMutableDictionary* ccLabelTTF_registeredFonts;
 
 - (void) setAttributedString:(NSAttributedString *)attributedString
 {
+
+#if	TARGET_OS_IOS
     NSAssert([CCConfiguration sharedConfiguration].OSVersion >= CCSystemVersion_iOS_6_0, @"Attributed strings are only supported on iOS 6 or later");
+#endif
     [self _setAttributedString:attributedString];
 }
 
