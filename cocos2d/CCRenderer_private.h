@@ -181,7 +181,7 @@ CCGraphicsBufferPushElements(CCGraphicsBuffer *buffer, size_t requestedCount, CC
 		[renderer resizeBuffer:buffer capacity:required*1.5];
 	}
 	
-	void *array = buffer->ptr + buffer->count*buffer->elementSize;
+	void *array = (char *)buffer->ptr + buffer->count*buffer->elementSize;
 	buffer->count += requestedCount;
 	
 	return array;
